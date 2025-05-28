@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title', 'Program Studi')
+@section('title', 'prodi')
 
 @section('content')
     <div class ="row">
@@ -7,16 +7,17 @@
 
                 <div class="card card-primary card-outline mb-4">
                   <!--begin::Header-->
-                  <div class="card-header"><div class="card-title">Tambah Program Studi</div></div>
+                  <div class="card-header"><div class="card-title">Ubah Program Studi</div></div>
                   <!--end::Header-->
                   <!--begin::Form-->
-                  <form action="{{ route('prodi.store') }}" method="POST">
+                  <form action="{{ route('prodi.update',$prodi->id) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <!--begin::Body-->
                     <div class="card-body">
                       <div class="mb-3">
                         <label for="nama" class="form-label">Nama Program Studi</label>
-                        <input type="text" class="form-control" name="nama" value="{{ old('nama') }}">
+                        <input type="text" class="form-control" name="nama" value="{{ old('nama') ? old('nama') : $prodi->nama }}">
                         @error('nama')
                           <div class="text-danger">{{ $message }}</div>
                         @enderror
@@ -45,9 +46,9 @@
                       <div class="mb-3">
                         <label for="fakultas_id" class="form-label">Fakultas</label>
                         <select class="form-control" name="fakultas_id">
-                        @foreach($fakultas as $item)
-                          <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                        @endforeach
+                          @foreach($fakultas as $item)
+                            <option value="{{ $item->id }}" {{ old('fakultas_id') == $item->id ? 'selected' : ($prodi->fakultas_id == $item->id ? 'selected' : null) }}>{{ $item->nama }}</option>
+                          @endforeach
                         </select>
                         @error('fakultas_id')
                           <div class="text-danger">{{ $message }}</div>
