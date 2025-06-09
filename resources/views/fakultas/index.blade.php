@@ -30,7 +30,9 @@
             </div>
             </div>
             <div class="card-body">
+                @can('create',App\models\Fakultas::class)
                 <a href="{{ route('fakultas.create') }}" class="btn btn-primary"> Tambah </a>
+                @endcan
                 <table class="table">
                     <thead>
                         <tr>
@@ -49,12 +51,16 @@
                                 <td>{{ $item->wakil_dekan}}</td>
                                 <td>
                                 <a href="{{ route('fakultas.show', $item->id) }}" class="btn btn-info" >Show</a>
+                                @can('update','$item')
                                 <a href="{{ route('fakultas.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                                @endcan
+                                @can('update','$item')
                                 <form action="{{ route('fakultas.destroy', $item->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger show_confirm" data-toggle="tooltop" title='Delete' data-nama='{{ $item->nama }}'>Delete</button>
                                 </form>
+                                @endcan
                                 </td>
                             </tr>
                         @endforeach

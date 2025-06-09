@@ -219,7 +219,7 @@
                     alt="User Image"
                   />
                   <p>
-                    {{ Auth::user()->name }} - Dosen/Admin
+                    {{ Auth::user()->name }} - {{ strtoupper(Auth::user()->role) }}
                     <small>Member since Nov. 2023</small>
                   </p>
                 </li>
