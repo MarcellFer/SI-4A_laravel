@@ -30,7 +30,7 @@
             </div>
             </div>
             <div class="card-body">
-                <a href="{{ route ('matakuliah.create')}}" class="btn btn-primary">Tambah Matakuliah</a>
+                <a href="{{ route ('matakuliah.create')}}" class="btn btn-primary"> Tambah </a>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>

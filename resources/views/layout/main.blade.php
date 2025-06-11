@@ -337,6 +337,12 @@
                   <p>Mahasiswa</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a class='nav-link' href='{{ url('matakuliah') }}'>
+                  <i class="nav-icon bi bi-palette"></i>
+                  <p>Mata Kuliah</p>
+                </a>
+              </li>
             </ul>
             <!--end::Sidebar Menu-->
           </nav>

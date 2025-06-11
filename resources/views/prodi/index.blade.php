@@ -30,10 +30,7 @@
             </div>
             </div>
             <div class="card-body">
-                
-            
-
-
+                <a href="{{ route('prodi.create') }}" class="btn btn-primary"> Tambah </a>
                 <table class="table">
                     <thead>
                         <tr>

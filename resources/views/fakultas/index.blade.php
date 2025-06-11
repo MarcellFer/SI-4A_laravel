@@ -30,9 +30,7 @@
             </div>
             </div>
             <div class="card-body">
-                @can('create',App\models\Fakultas::class)
                 <a href="{{ route('fakultas.create') }}" class="btn btn-primary"> Tambah </a>
-                @endcan
                 <table class="table">
                     <thead>
                         <tr>
